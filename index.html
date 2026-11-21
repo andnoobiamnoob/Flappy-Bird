@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#67c9ed" />
+  <title>Flappy Bird</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <section id="gameWrap" class="game-wrap" aria-label="Flappy Bird game">
+      <canvas id="game" aria-label="Game canvas"></canvas>
+
+      <div id="topHud" class="hud hidden">
+        <button id="pauseBtn" class="icon-btn" aria-label="Pause">Ⅱ</button>
+        <div id="score" class="score">0</div>
+      </div>
+
+      <div id="homeScreen" class="overlay home-screen">
+        <div class="brand">
+          <span>FLAPPY</span>
+          <strong>BIRD</strong>
+        </div>
+        <div class="best-badge">BEST <b id="homeBest">0</b></div>
+        <button id="playBtn" class="primary-btn">PLAY</button>
+        <p class="tap-tip">Tap to flap</p>
+        <div class="home-actions">
+          <button id="homeSoundBtn" class="round-btn" aria-label="Toggle sound">♪</button>
+          <button id="achievementsBtn" class="round-btn" aria-label="Achievements">★</button>
+          <button id="settingsBtn" class="round-btn" aria-label="Settings">⚙</button>
+        </div>
+      </div>
+
+      <div id="pauseScreen" class="overlay modal-overlay hidden">
+        <div class="panel">
+          <h2>PAUSED</h2>
+          <button id="resumeBtn" class="primary-btn">RESUME</button>
+          <button id="pauseRestartBtn" class="secondary-btn">RESTART</button>
+          <button id="pauseHomeBtn" class="text-btn">HOME</button>
+        </div>
+      </div>
+
+      <div id="gameOverScreen" class="overlay modal-overlay hidden">
+        <div class="panel game-over-panel">
+          <h2 id="gameOverTitle">GAME OVER</h2>
+          <div id="newBest" class="new-best hidden">NEW BEST!</div>
+          <div class="score-card">
+            <div><span>SCORE</span><b id="finalScore">0</b></div>
+            <div><span>BEST</span><b id="finalBest">0</b></div>
+          </div>
+          <button id="restartBtn" class="primary-btn">RESTART</button>
+          <button id="gameOverHomeBtn" class="text-btn">HOME</button>
+        </div>
+      </div>
+
+      <div id="settingsScreen" class="overlay modal-overlay hidden">
+        <div class="panel settings-panel">
+          <h2>SETTINGS</h2>
+          <div class="setting-row">
+            <span>Sound</span>
+            <button id="soundToggle" class="toggle" role="switch" aria-checked="true"><i></i></button>
+          </div>
+          <div class="setting-row">
+            <span>Music</span>
+            <button id="musicToggle" class="toggle" role="switch" aria-checked="false"><i></i></button>
+          </div>
+          <div class="setting-row">
+            <span>Vibration</span>
+            <button id="vibrationToggle" class="toggle" role="switch" aria-checked="true"><i></i></button>
+          </div>
+          <div class="mode-picker" aria-label="Difficulty">
+            <button data-mode="easy">Easy</button>
+            <button data-mode="classic" class="active">Classic</button>
+            <button data-mode="hard">Hard</button>
+          </div>
+          <button id="resetScoreBtn" class="danger-btn">RESET HIGH SCORE</button>
+          <button id="settingsBackBtn" class="text-btn">BACK</button>
+        </div>
+      </div>
+
+      <div id="achievementsScreen" class="overlay modal-overlay hidden">
+        <div class="panel achievements-panel">
+          <h2>ACHIEVEMENTS</h2>
+          <div id="achievementList" class="achievement-list"></div>
+          <button id="achievementsBackBtn" class="text-btn">BACK</button>
+        </div>
+      </div>
+
+      <div id="toast" class="toast hidden"></div>
+      <div id="confirmReset" class="overlay modal-overlay hidden">
+        <div class="panel confirm-panel">
+          <h2>RESET BEST?</h2>
+          <p>This cannot be undone.</p>
+          <button id="confirmResetBtn" class="danger-btn">RESET</button>
+          <button id="cancelResetBtn" class="text-btn">CANCEL</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
